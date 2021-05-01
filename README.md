@@ -1,2 +1,0 @@
-# KWIU - Ecommerce Website
- 
