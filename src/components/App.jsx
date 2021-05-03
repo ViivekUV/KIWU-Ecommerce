@@ -4,7 +4,9 @@ import Categories from "./Categories";
 import Cart from "./Cart";
 import Footer from "./Footer";
 import Promise from "./Promise";
-import products from "../products";
+import products, {totalPrice, totalDiscount} from "../products";
+
+const sum = 0;
 
 function productCart(product) {
     return (
@@ -23,8 +25,25 @@ function App() {
         <div>
             <Navbar />
             <Categories />
-            <h2 style={{marginLeft: "30px"}}>Your Cart</h2>
-            {products.map(productCart)}
+            <div className="cartDiv">
+                <div className="cartCardDiv">
+                    <h2 style={{marginLeft: "30px"}}>Your Cart</h2>
+                    {products.map(productCart)}
+                </div>
+                {/* <h2 style={{marginLeft: "30px"}}>Cart Total</h2> */}
+                <div className="cartTotalDiv">
+                    <div className="cartDiv">
+                        <div className="cartCardDiv">
+                            <h2 style={{textAlign: "left"}}>Cart Total</h2>
+                            <h4 style={{textAlign: "left"}}>Total Discount</h4>
+                        </div>
+                        <div className="cartTotalDiv" style={{borderStyle: "unset"}}>
+                            <h2 style={{textAlign: "right"}}>{totalPrice}</h2>
+                            <h4 style={{textAlign: "right"}}>(-{totalDiscount})</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <Promise />
             <Footer />
         </div>
